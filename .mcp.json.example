@@ -4,7 +4,7 @@
       "command": "npx",
       "args": ["-y", "easy-notion-mcp"],
       "env": {
-        "NOTION_API_KEY": "<your-notion-api-token>"
+        "NOTION_TOKEN": "<your-notion-api-token>"
       }
     }
   }
