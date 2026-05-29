@@ -1,0 +1,76 @@
+<h2>书籍架构方案对比</h2>
+<p class="subtitle">基于混合结构（基础篇 + 各领域独立展开），三种组织方式</p>
+
+<div class="options">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>深度优先架构</h3>
+      <p><strong>基础篇精简（2-3章）</strong>，只覆盖数学基础和 ML 核心概念。各领域篇做到极致深度，从原理到前沿全覆盖。</p>
+      <div class="pros-cons">
+        <div class="pros"><h4>Pros</h4>
+          <ul>
+            <li>领域深度充分，每篇都是该领域的完整教材</li>
+            <li>有经验的读者可以跳过基础篇直接深入</li>
+            <li>各领域篇独立性强，可以分阶段写作和发布</li>
+          </ul>
+        </div>
+        <div class="cons"><h4>Cons</h4>
+          <ul>
+            <li>初学者可能需要频繁回查基础概念</li>
+            <li>各领域篇之间可能有交叉内容重复</li>
+            <li>基础篇太薄可能不足以支撑后续阅读</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>均衡分层架构</h3>
+      <p><strong>基础篇夯实（5-8章）</strong>，覆盖数学、经典ML、深度学习基础。各领域篇聚焦该领域独特内容，共性部分在基础篇统一处理。</p>
+      <div class="pros-cons">
+        <div class="pros"><h4>Pros</h4>
+          <ul>
+            <li>基础扎实，读者进入任何领域都有足够预备知识</li>
+            <li>避免各领域篇之间的内容重复</li>
+            <li>学习路径清晰，适合从头到尾阅读</li>
+          </ul>
+        </div>
+        <div class="cons"><h4>Cons</h4>
+          <ul>
+            <li>基础篇体量较大，可能让急于实践的读者失去耐心</li>
+            <li>对于有经验的读者，基础篇有较多已知内容</li>
+            <li>整体篇幅更长</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>渐进螺旋架构</h3>
+      <p><strong>基础篇分两层</strong>：快速入门（1-2章，足够读懂后续） + 各领域内嵌"深度基础"章节。知识以螺旋方式递进，读者在实践中回头深化理论。</p>
+      <div class="pros-cons">
+        <div class="pros"><h4>Pros</h4>
+          <ul>
+            <li>上手门槛最低，读者可以快速进入感兴趣的领域</li>
+            <li>理论与实践的交替推进，学习体验更好</li>
+            <li>"用到才学"的方式提高知识留存率</li>
+          </ul>
+        </div>
+        <div class="cons"><h4>Cons</h4>
+          <ul>
+            <li>组织复杂度高，需要精心设计知识点的螺旋路径</li>
+            <li>线性阅读体验可能被打断</li>
+            <li>作为参考书时检索不够直接</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
