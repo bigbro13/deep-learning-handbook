@@ -1,0 +1,17 @@
+[book]
+title = "AI 知识全书"
+authors = ["Your Name"]
+version = "0.1.0"
+language = "zh-CN"
+
+[structure]
+parts = ["basics", "cv", "nlp-llm", "multimodal", "interview"]
+
+[rendering]
+math = true
+highlight = true
+
+[status]
+draft = "part-1-basics, part-2-cv, part-3-nlp-llm, part-4-multimodal, part-5-interview"
+review = ""
+done = ""
