@@ -241,7 +241,7 @@ $$Q = X W^Q, \quad K = X W^K, \quad V = X W^V$$
 
 接着一次性算出所有的注意力分数矩阵和输出:
 
-![image-20260623150020087](https://raw.githubusercontent.com/bigbro13/deep-learning-handbook/master/assets/images/ch04/attentionQkV.png)
+![image-20260623150020087](https://raw.githubusercontent.com/bigbro13/deep-learning-handbook/master/assets/images/ch04/attentionQKV.png)
 
 $$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{Q K^T}{\sqrt{d_k}}\right) V$$
 
