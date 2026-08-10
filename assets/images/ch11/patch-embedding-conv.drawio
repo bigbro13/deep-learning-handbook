@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-08-10T16:30:00.000Z" agent="drawio" version="22.0.0" type="device">
+  <diagram name="patch-embedding-conv" id="patch-embedding-conv">
+    <mxGraphModel dx="1422" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1500" pageHeight="380" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="title" value="&lt;b&gt;用一次卷积同时完成「分块 + 展平 + 线性投影」&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=18;fontColor=#1f4e79;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="20" width="700" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" value="卷积核大小 = 步长 = patch 大小,卷积核个数 = 嵌入维度,一次卷积同时完成三件事" style="text;html=1;align=center;verticalAlign=middle;fontSize=12;fontColor=#666666;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="400" y="58" width="700" height="24" as="geometry" />
+        </mxCell>
+
+        <mxCell id="n1" value="&lt;b&gt;输入图像&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;224 × 224 × 3&lt;/font&gt;" style="shape=mxgraph.flowchart.terminator;fillColor=#6c8ebf;strokeColor=#1f4e79;strokeWidth=2;fontColor=#ffffff;shadow=1;fontSize=13;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="170" width="160" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="b1" value="①" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1f4e79;strokeColor=#1f4e79;fontColor=#ffffff;fontSize=14;fontStyle=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="215" y="135" width="28" height="28" as="geometry" />
+        </mxCell>
+
+        <mxCell id="n2" value="&lt;b&gt;Conv2d&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;kernel = 16×16&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;stride = 16, out = 768&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d79b00;strokeColor=#a85f00;strokeWidth=2.5;shadow=1;fontColor=#ffffff;fontSize=12;fontStyle=1;spacing=3;spacingTop=2;" vertex="1" parent="1">
+          <mxGeometry x="260" y="155" width="200" height="110" as="geometry" />
+        </mxCell>
+
+        <mxCell id="b2" value="②" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1f4e79;strokeColor=#1f4e79;fontColor=#ffffff;fontSize=14;fontStyle=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="475" y="135" width="28" height="28" as="geometry" />
+        </mxCell>
+
+        <mxCell id="n3" value="&lt;b&gt;特征图&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px; color: #1f4e79;&quot;&gt;&lt;b&gt;14 × 14 × 768&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;strokeWidth=2;shadow=1;fontSize=12;spacing=3;spacingTop=2;" vertex="1" parent="1">
+          <mxGeometry x="520" y="170" width="170" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="b3" value="③" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1f4e79;strokeColor=#1f4e79;fontColor=#ffffff;fontSize=14;fontStyle=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="705" y="135" width="28" height="28" as="geometry" />
+        </mxCell>
+
+        <mxCell id="n4" value="&lt;b&gt;flatten + transpose&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;空间维度展平 + 转置&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;strokeWidth=2;shadow=1;fontSize=12;spacing=3;spacingTop=2;" vertex="1" parent="1">
+          <mxGeometry x="750" y="170" width="200" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="b4" value="④" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1f4e79;strokeColor=#1f4e79;fontColor=#ffffff;fontSize=14;fontStyle=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="965" y="135" width="28" height="28" as="geometry" />
+        </mxCell>
+
+        <mxCell id="n5" value="&lt;b&gt;token 序列&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px; color: #3a5f23;&quot;&gt;&lt;b&gt;196 × 768&lt;/b&gt;&lt;/font&gt;" style="shape=mxgraph.flowchart.terminator;fillColor=#82b366;strokeColor=#3a5f23;strokeWidth=2;fontColor=#ffffff;shadow=1;fontSize=13;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1010" y="170" width="170" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="note" value="每个 token 对应原图中 16 × 16 的小块 (共 196 个 patch, 对应 14 × 14 的网格)" style="text;html=1;align=center;verticalAlign=middle;fontSize=11;fontColor=#888888;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="350" y="310" width="800" height="22" as="geometry" />
+        </mxCell>
+
+        <mxCell id="caption" value="&lt;b&gt;ViT-Base/16:&lt;/b&gt; 224×224×3 → Conv2d(16,16,768) → 14×14×768 → flatten → 196×768" style="text;html=1;align=center;verticalAlign=middle;fontSize=11;fontColor=#1f4e79;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="338" width="800" height="22" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e12" style="endArrow=classic;html=1;rounded=1;curved=1;strokeColor=#6c8ebf;strokeWidth=2.5;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="n1" target="n2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e23" style="endArrow=classic;html=1;rounded=1;curved=1;strokeColor=#d79b00;strokeWidth=3;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="n2" target="n3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e34" style="endArrow=classic;html=1;rounded=1;curved=1;strokeColor=#6c8ebf;strokeWidth=2.5;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="n3" target="n4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e45" style="endArrow=classic;html=1;rounded=1;curved=1;strokeColor=#82b366;strokeWidth=3;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="n4" target="n5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

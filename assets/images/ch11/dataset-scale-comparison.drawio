@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-08-10T16:30:00.000Z" agent="drawio" version="22.0.0" type="device">
+  <diagram name="dataset-scale-comparison" id="dataset-scale-comparison">
+    <mxGraphModel dx="1422" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1500" pageHeight="580" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="title" value="&lt;b&gt;数据规模决定 ViT 的性能上限&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=18;fontColor=#1f4e79;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="20" width="600" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" value="CNN 靠归纳偏置在小数据上赢, ViT 靠全局建模在大数据上赢" style="text;html=1;align=center;verticalAlign=middle;fontSize=12;fontColor=#666666;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="450" y="58" width="600" height="24" as="geometry" />
+        </mxCell>
+
+        <mxCell id="col1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffebee;strokeColor=#c62828;strokeWidth=2;dashed=1;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="40" y="105" width="430" height="430" as="geometry" />
+        </mxCell>
+        <mxCell id="col1_title" value="&lt;b&gt;小数据集&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=14;fontColor=#c62828;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="115" width="430" height="24" as="geometry" />
+        </mxCell>
+
+        <mxCell id="col1_dataset" value="&lt;b&gt;ImageNet&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;约 130 万张 / 1000 类&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#c62828;strokeWidth=2;shadow=1;fontSize=13;fontStyle=1;spacing=3;spacingTop=2;" vertex="1" parent="1">
+          <mxGeometry x="100" y="160" width="310" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="col1_arrow" style="endArrow=classic;html=1;rounded=1;curved=1;strokeColor=#c62828;strokeWidth=2.5;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="col1_dataset" target="col1_result">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="col1_arrow_label" value="预训练 → 迁移评估" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;fontColor=#888888;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="100" y="230" width="310" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="col1_result" value="&lt;b&gt;ViT 表现弱于 BiT (ResNet)&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#c62828;strokeWidth=2.5;shadow=1;fontSize=13;fontColor=#c62828;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="265" width="310" height="55" as="geometry" />
+        </mxCell>
+
+        <mxCell id="col1_reason" value="&lt;b&gt;原因&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;CNN 归纳偏置在数据稀缺时是巨大优势&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;ViT 缺乏先验, 需更多数据才能学到等价能力&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;strokeWidth=1;fontSize=11;fontColor=#666666;align=left;spacing=8;spacingLeft=12;" vertex="1" parent="1">
+          <mxGeometry x="100" y="345" width="310" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="col1_verdict" value="&lt;b&gt;× 不推荐&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 9px; color: #888888;&quot;&gt;此规模下 CNN 更具优势&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=13;fontColor=#c62828;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="450" width="310" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="col2" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#ef6c00;strokeWidth=2;dashed=1;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="535" y="105" width="430" height="430" as="geometry" />
+        </mxCell>
+        <mxCell id="col2_title" value="&lt;b&gt;中等数据集&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=14;fontColor=#ef6c00;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="535" y="115" width="430" height="24" as="geometry" />
+        </mxCell>
+
+        <mxCell id="col2_dataset" value="&lt;b&gt;ImageNet-21k&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;约 1400 万张 / 21843 类&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#ef6c00;strokeWidth=2;shadow=1;fontSize=13;fontStyle=1;spacing=3;spacingTop=2;" vertex="1" parent="1">
+          <mxGeometry x="595" y="160" width="310" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="col2_arrow" style="endArrow=classic;html=1;rounded=1;curved=1;strokeColor=#ef6c00;strokeWidth=2.5;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="col2_dataset" target="col2_result">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="col2_arrow_label" value="预训练 → 迁移评估" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;fontColor=#888888;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="595" y="230" width="310" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="col2_result" value="&lt;b&gt;ViT 表现与 BiT 接近&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#ef6c00;strokeWidth=2.5;shadow=1;fontSize=13;fontColor=#ef6c00;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="595" y="265" width="310" height="55" as="geometry" />
+        </mxCell>
+
+        <mxCell id="col2_reason" value="&lt;b&gt;转折点&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;CNN 归纳偏置优势开始被数据量稀释&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;ViT 在某些配置下略好, 某些略差&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;strokeWidth=1;fontSize=11;fontColor=#666666;align=left;spacing=8;spacingLeft=12;" vertex="1" parent="1">
+          <mxGeometry x="595" y="345" width="310" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="col2_verdict" value="&lt;b&gt;≈ 旗鼓相当&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 9px; color: #888888;&quot;&gt;ViT 开始展现潜力&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=13;fontColor=#ef6c00;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="595" y="450" width="310" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="col3" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f5e9;strokeColor=#2e7d32;strokeWidth=2.5;dashed=1;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="1030" y="105" width="430" height="430" as="geometry" />
+        </mxCell>
+        <mxCell id="col3_title" value="&lt;b&gt;大数据集&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=14;fontColor=#2e7d32;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1030" y="115" width="430" height="24" as="geometry" />
+        </mxCell>
+
+        <mxCell id="col3_dataset" value="&lt;b&gt;JFT-300M&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;约 3 亿张 / 18291 类&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2e7d32;strokeWidth=2.5;shadow=1;fontSize=13;fontStyle=1;spacing=3;spacingTop=2;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="160" width="310" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="col3_arrow" style="endArrow=classic;html=1;rounded=1;curved=1;strokeColor=#2e7d32;strokeWidth=3;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="col3_dataset" target="col3_result">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="col3_arrow_label" value="预训练 → 迁移评估" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;fontColor=#888888;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="230" width="310" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="col3_result" value="&lt;b&gt;ViT 表现显著超越 BiT&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#2e7d32;strokeWidth=3;shadow=1;fontSize=14;fontColor=#2e7d32;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="265" width="310" height="55" as="geometry" />
+        </mxCell>
+
+        <mxCell id="col3_reason" value="&lt;b&gt;质变&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;Transformer 全局建模能力被充分释放&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;缺乏归纳偏置反而成为优势——没有局部先验束缚&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;strokeWidth=1;fontSize=11;fontColor=#666666;align=left;spacing=8;spacingLeft=12;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="345" width="310" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="col3_verdict" value="&lt;b&gt;★ 完胜&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 9px; color: #2e7d32;&quot;&gt;ViT 的理想战场&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=13;fontColor=#2e7d32;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="450" width="310" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="scale_indicator" value="&lt;b&gt;数据规模递增&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=11;fontColor=#1f4e79;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="555" width="1420" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

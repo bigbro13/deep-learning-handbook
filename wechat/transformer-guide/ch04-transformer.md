@@ -2,7 +2,7 @@
 
 > 本文是「Transformer 完全拆解」系列之一。从 RNN 的硬伤讲起，逐步拆解 Self-Attention、多头注意力、位置编码、Encoder/Decoder Block、训练与推理的不对称，最后给出 PyTorch 极简实现，帮你把 Transformer 的每一块骨头都啃干净。
 >
-> 下一篇：[ViT 与 Swin Transformer]()
+> 下一篇：[ViT 完全拆解：把图像切成「视觉单词」塞进 Transformer](../vit-guide/ch11-vit.md)
 
 ---
 

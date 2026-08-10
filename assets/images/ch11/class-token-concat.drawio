@@ -1,0 +1,57 @@
+<mxfile host="65bd71144e">
+    <diagram name="class-token-concat" id="class-token-concat">
+        <mxGraphModel dx="1666" dy="1139" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1300" pageHeight="560" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="title" value="&lt;b&gt;Class Token 拼接&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=18;fontColor=#b85450;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="20" width="500" height="32" as="geometry"/>
+                </mxCell>
+                <mxCell id="subtitle" value="在 patch 序列最前面拼接一个可学习的 Class Token,作为全局信息汇聚点" style="text;html=1;align=center;verticalAlign=middle;fontSize=12;fontColor=#666666;fontStyle=2;" parent="1" vertex="1">
+                    <mxGeometry x="300" y="58" width="700" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="n1" value="&lt;b&gt;Patch 序列&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;196 × 768&lt;/font&gt;" style="shape=mxgraph.flowchart.terminator;fillColor=#6c8ebf;strokeColor=#1f4e79;strokeWidth=2;fontColor=#ffffff;shadow=1;fontSize=12;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="180" width="180" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="n2" value="&lt;b&gt;可学习 Class Token&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;1 × 768&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #b85450;&quot;&gt;初始化为全 0, 通过训练学习&lt;/font&gt;" style="shape=mxgraph.flowchart.preparation;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=2;shadow=1;fontSize=12;whiteSpace=wrap;html=1;spacing=3;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="390" width="180" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="n3" value="&lt;b&gt;Concat&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;沿序列维度拼接&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;strokeWidth=2.5;shadow=1;fontSize=13;fontStyle=1;spacing=3;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="370" y="280" width="170" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="n4" value="&lt;b&gt;拼接后序列&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px; color: #1f4e79;&quot;&gt;&lt;b&gt;197 × 768&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;Class Token 在第 0 位&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;shadow=1;fontSize=12;spacing=3;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="660" y="285" width="210" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="n5" value="&lt;b&gt;Transformer Encoder&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;通过自注意力收集全局信息&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d79b00;strokeColor=#a85f00;strokeWidth=2.5;shadow=1;fontColor=#ffffff;fontSize=13;fontStyle=1;spacing=3;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="990" y="280" width="240" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="e13" style="endArrow=classic;html=1;rounded=1;curved=1;strokeColor=#6c8ebf;strokeWidth=2.5;exitX=1;exitY=0.5;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="n1" target="n3" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="380" y="200"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e23" style="endArrow=classic;html=1;rounded=1;curved=1;strokeColor=#b85450;strokeWidth=2.5;exitX=1;exitY=0.5;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="n2" target="n3" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="390" y="470"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e34" style="endArrow=classic;html=1;rounded=1;curved=1;strokeColor=#6c8ebf;strokeWidth=2.5;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="n3" target="n4" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e45" style="endArrow=classic;html=1;rounded=1;curved=1;strokeColor=#d79b00;strokeWidth=3;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="n4" target="n5" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="callout" value="&lt;b&gt;关键点&lt;/b&gt;:Class Token 通过自注意力与所有 patch 交互, &lt;br&gt;最后变成整张图的全局表征 → 切片取 x[:, 0] 做分类" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=1.5;dashed=1;fontSize=11;fontColor=#666666;align=left;spacing=8;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="90" y="500" width="580" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="callout2" value="&lt;b&gt;借鉴自 BERT 的 [CLS] 设计&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;fontColor=#888888;fontStyle=2;" parent="1" vertex="1">
+                    <mxGeometry x="660" y="500" width="570" height="22" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
