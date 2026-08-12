@@ -1,0 +1,100 @@
+<mxfile host="65bd71144e">
+    <diagram name="detr-eng-engineering-timeline" id="detr-eng-engineering-timeline">
+        <mxGraphModel dx="1666" dy="1139" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="820" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="title" value="&lt;b&gt;DETR 5 年工程化时间线:从「证明可行」到「又快又准」&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=18;fontColor=#1f4e79;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="20" width="1400" height="32" as="geometry"/>
+                </mxCell>
+                <mxCell id="subtitle" value="每一代解决一个具体的工程问题:慢 → 多尺度 → Query 起点 → 收敛 → 实时 → 小物体" style="text;html=1;align=center;verticalAlign=middle;fontSize=12;fontColor=#666666;fontStyle=2;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="58" width="1400" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="c_timeline" value="&lt;b&gt;DETR 5 年工程化 (2020 → 2025)&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#aaaaaa;strokeWidth=1.5;dashed=1;verticalAlign=top;spacingTop=8;fontSize=13;fontColor=#444444;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="100" width="1720" height="620" as="geometry"/>
+                </mxCell>
+                <mxCell id="year_label" value="&lt;b&gt;年份 →&lt;/b&gt;" style="text;html=1;align=left;verticalAlign=middle;fontSize=12;fontColor=#1f4e79;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="120" width="100" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="t1_year" value="&lt;b&gt;2020&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1f4e79;strokeColor=#1f4e79;strokeWidth=1.5;shadow=1;fontColor=#ffffff;fontSize=14;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="180" width="240" height="36" as="geometry"/>
+                </mxCell>
+                <mxCell id="t1" value="&lt;b&gt;DETR (Facebook AI)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;集合预测 + 一对一匹配&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;Transformer Enc-Dec + 100 Query&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #b85450;&quot;&gt;&lt;b&gt;痛点:500 epoch 慢,小物体弱&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;strokeWidth=2;shadow=1;fontSize=11;fontStyle=1;spacing=4;spacingTop=3;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="225" width="240" height="220" as="geometry"/>
+                </mxCell>
+                <mxCell id="t2_year" value="&lt;b&gt;2021&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1f4e79;strokeColor=#1f4e79;strokeWidth=1.5;shadow=1;fontColor=#ffffff;fontSize=14;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="360" y="180" width="240" height="36" as="geometry"/>
+                </mxCell>
+                <mxCell id="t2" value="&lt;b&gt;Deformable DETR&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;多尺度 + 可变形注意力&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;每 Query 只看 4 个采样点&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #3a5f23;&quot;&gt;&lt;b&gt;突破:50 epoch 收敛,小物体提升&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;strokeWidth=2;shadow=1;fontSize=11;fontStyle=1;spacing=4;spacingTop=3;" parent="1" vertex="1">
+                    <mxGeometry x="360" y="225" width="240" height="220" as="geometry"/>
+                </mxCell>
+                <mxCell id="t3_year" value="&lt;b&gt;2022&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1f4e79;strokeColor=#1f4e79;strokeWidth=1.5;shadow=1;fontColor=#ffffff;fontSize=14;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="640" y="180" width="240" height="36" as="geometry"/>
+                </mxCell>
+                <mxCell id="t3" value="&lt;b&gt;DAB-DETR&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;显式 4D 坐标 Query&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;Query 编码 (x, y, w, h)&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #3a5f23;&quot;&gt;&lt;b&gt;突破:Query 起点包含位置信息&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;strokeWidth=2;shadow=1;fontSize=11;fontStyle=1;spacing=4;spacingTop=3;" parent="1" vertex="1">
+                    <mxGeometry x="640" y="225" width="240" height="220" as="geometry"/>
+                </mxCell>
+                <mxCell id="t4_year" value="&lt;b&gt;2022&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1f4e79;strokeColor=#1f4e79;strokeWidth=1.5;shadow=1;fontColor=#ffffff;fontSize=14;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="920" y="180" width="240" height="36" as="geometry"/>
+                </mxCell>
+                <mxCell id="t4" value="&lt;b&gt;DN-DETR&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;去噪训练 (Denoising)&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;给 GT 框加噪让网络学去噪&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #3a5f23;&quot;&gt;&lt;b&gt;突破:60 epoch 收敛,精度超 Faster R-CNN&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;strokeWidth=2;shadow=1;fontSize=11;fontStyle=1;spacing=4;spacingTop=3;" parent="1" vertex="1">
+                    <mxGeometry x="920" y="225" width="240" height="220" as="geometry"/>
+                </mxCell>
+                <mxCell id="t5_year" value="&lt;b&gt;2023&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a85f00;strokeColor=#a85f00;strokeWidth=2;shadow=1;fontColor=#ffffff;fontSize=14;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="1200" y="180" width="240" height="36" as="geometry"/>
+                </mxCell>
+                <mxCell id="t5" value="&lt;b&gt;RT-DETR v1 (Baidu)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;Hybrid Encoder + IoU-aware Query&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;AIFI + CCFM + K=300 稀疏预测&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #a85f00;&quot;&gt;&lt;b&gt;里程碑:T4 108 FPS,53.0 AP,实时 + 端到端&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d79b00;strokeColor=#a85f00;strokeWidth=2.5;shadow=1;fontColor=#ffffff;fontSize=11;fontStyle=1;spacing=4;spacingTop=3;" parent="1" vertex="1">
+                    <mxGeometry x="1200" y="225" width="240" height="220" as="geometry"/>
+                </mxCell>
+                <mxCell id="t6_year" value="&lt;b&gt;2025&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#3a5f23;strokeColor=#3a5f23;strokeWidth=2;shadow=1;fontColor=#ffffff;fontSize=14;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="1480" y="180" width="240" height="36" as="geometry"/>
+                </mxCell>
+                <mxCell id="t6" value="&lt;b&gt;RT-DETR v4&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;CFE (Compound Efficient Encoder)&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;窗口注意力 SIA + 跨尺度 CIF + DQ&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #3a5f23;&quot;&gt;&lt;b&gt;突破:55.3 AP,小物体 +2.5 AP,追平 YOLOv11&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2.5;shadow=1;fontSize=11;fontStyle=1;spacing=4;spacingTop=3;" parent="1" vertex="1">
+                    <mxGeometry x="1480" y="225" width="240" height="220" as="geometry"/>
+                </mxCell>
+                <mxCell id="e1" style="endArrow=classic;html=1;rounded=1;curved=0;strokeColor=#1f4e79;strokeWidth=2.5;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="t1" target="t2" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e2" style="endArrow=classic;html=1;rounded=1;curved=0;strokeColor=#1f4e79;strokeWidth=2.5;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="t2" target="t3" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e3" style="endArrow=classic;html=1;rounded=1;curved=0;strokeColor=#1f4e79;strokeWidth=2.5;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="t3" target="t4" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e4" style="endArrow=classic;html=1;rounded=1;curved=0;strokeColor=#a85f00;strokeWidth=3;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="t4" target="t5" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e5" style="endArrow=classic;html=1;rounded=1;curved=0;strokeColor=#3a5f23;strokeWidth=3;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="t5" target="t6" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="timeline_arrow" style="endArrow=classic;html=1;rounded=1;curved=0;strokeColor=#aaaaaa;strokeWidth=1.5;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="timeline_start" target="timeline_end" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="timeline_start" value="" style="ellipse;fillColor=#1f4e79;strokeColor=#1f4e79;fontColor=#ffffff;fontSize=16;fontStyle=1;shadow=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="490" width="20" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="timeline_end" value="" style="ellipse;fillColor=#3a5f23;strokeColor=#3a5f23;fontColor=#ffffff;fontSize=16;fontStyle=1;shadow=1;" parent="1" vertex="1">
+                    <mxGeometry x="1740" y="490" width="20" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="theme_label" value="&lt;b&gt;工程化主线:每一代只解决一个具体问题&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;dashed=1;shadow=1;fontSize=13;fontColor=#444444;fontStyle=1;spacing=6;spacingTop=4;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="540" width="1640" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="theme1" value="&lt;b&gt;v1 之前:&lt;/b&gt;解决「慢」(Deformable) + 「Query 起点差」(DAB) + 「收敛慢」(DN)" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontColor=#1f4e79;fontStyle=2;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="620" width="700" height="22" as="geometry"/>
+                </mxCell>
+                <mxCell id="theme2" value="&lt;b&gt;v1:&lt;/b&gt;解决「实时」+「端到端」(Hybrid Encoder + IoU-aware Query)" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontColor=#a85f00;fontStyle=2;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="650" width="700" height="22" as="geometry"/>
+                </mxCell>
+                <mxCell id="theme3" value="&lt;b&gt;v2-v3:&lt;/b&gt;零成本精度提升(训练策略精修 / 去噪解耦)" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontColor=#1f4e79;fontStyle=2;" parent="1" vertex="1">
+                    <mxGeometry x="800" y="620" width="900" height="22" as="geometry"/>
+                </mxCell>
+                <mxCell id="theme4" value="&lt;b&gt;v4:&lt;/b&gt;结构性创新(窗口注意力 + 跨尺度融合 + 密集 Query)" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontColor=#3a5f23;fontStyle=2;" parent="1" vertex="1">
+                    <mxGeometry x="800" y="650" width="900" height="22" as="geometry"/>
+                </mxCell>
+                <mxCell id="conclusion" value="&lt;b&gt;5 年 4 代迭代的启示:&lt;/b&gt;架构定了之后,工程化打磨还有巨大空间 —— 每一代通过「解决一个非常具体的工程问题」获得 0.5-1.5 AP 的提升,「持续小步迭代」是工业级模型开发的典型路径" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;dashed=1;shadow=1;align=center;spacing=8;fontSize=12;fontColor=#3a5f23;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="750" width="1640" height="50" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

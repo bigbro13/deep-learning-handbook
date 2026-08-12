@@ -1,0 +1,123 @@
+<mxfile host="65bd71144e">
+    <diagram name="loss-matching-flow" id="loss-matching-flow">
+        <mxGraphModel dx="1666" dy="1139" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1900" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="title" value="&lt;b&gt;匹配代价与损失函数:匈牙利匹配 + 分类 + L1 + GIoU&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=18;fontColor=#1f4e79;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="500" y="20" width="900" height="32" as="geometry"/>
+                </mxCell>
+                <mxCell id="subtitle" value="预测框 + 类别 → 匈牙利匹配 → 计算匹配代价 C_ij → 加权求和得到总损失" style="text;html=1;align=center;verticalAlign=middle;fontSize=12;fontColor=#666666;fontStyle=2;" parent="1" vertex="1">
+                    <mxGeometry x="300" y="58" width="1300" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="c_left" value="&lt;b&gt;① 匈牙利匹配 (Hungarian Matching)&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#aaaaaa;strokeWidth=1.5;dashed=1;verticalAlign=top;spacingTop=8;fontSize=13;fontColor=#444444;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="110" width="900" height="780" as="geometry"/>
+                </mxCell>
+                <mxCell id="c_right" value="&lt;b&gt;② 损失函数 (加权求和)&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#aaaaaa;strokeWidth=1.5;dashed=1;verticalAlign=top;spacingTop=8;fontSize=13;fontColor=#444444;" parent="1" vertex="1">
+                    <mxGeometry x="960" y="110" width="900" height="780" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_pred" value="&lt;b&gt;预测集合 (N=300 Query)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;每个 Query 输出: 类别 + 框&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6c8ebf;strokeColor=#1f4e79;strokeWidth=2;shadow=1;fontColor=#ffffff;fontSize=12;fontStyle=1;spacing=4;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="160" width="380" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_pred_list" value="&lt;b&gt;Query 1: 猫 (0.9) [120,80,200,160]&lt;/b&gt;&lt;br&gt;&lt;b&gt;Query 2: 狗 (0.8) [300,200,400,320]&lt;/b&gt;&lt;br&gt;&lt;b&gt;Query 3: 背景 (0.7)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;... 300 个 Query, 多数为背景&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;strokeWidth=2;shadow=1;fontSize=11;align=left;verticalAlign=middle;spacing=6;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="240" width="380" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_gt" value="&lt;b&gt;真实框集合 (GT)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;图像中所有标注的物体&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d79b00;strokeColor=#a85f00;strokeWidth=2;shadow=1;fontColor=#ffffff;fontSize=12;fontStyle=1;spacing=4;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="500" y="160" width="380" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_gt_list" value="&lt;b&gt;GT 1: 猫 [125,85,195,155]&lt;/b&gt;&lt;br&gt;&lt;b&gt;GT 2: 狗 [305,205,395,315]&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;... 假设图中有 K=2 个真实物体&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;strokeWidth=2;shadow=1;fontSize=11;align=left;verticalAlign=middle;spacing=6;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="500" y="240" width="380" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_hungarian" value="&lt;b&gt;匈牙利匹配 (Hungarian Algorithm)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;为每个 GT 找「最优」的 Query 配对&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #009999;&quot;&gt;&lt;b&gt;目标: 全局最优的一对一匹配 (总代价最小)&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#009999;strokeColor=#006666;strokeWidth=2.5;shadow=1;fontColor=#ffffff;fontSize=13;fontStyle=1;spacing=4;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="240" y="380" width="500" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_match_label" value="&lt;b&gt;一对一匹配结果&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=11;fontColor=#009999;fontStyle=2;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="500" width="820" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_match_1" value="&lt;b&gt;Query 1 ↔ GT 1 (猫)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;IoU ≈ 0.85, 类别一致&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;shadow=1;fontSize=11;spacing=4;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="530" width="380" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_match_2" value="&lt;b&gt;Query 2 ↔ GT 2 (狗)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;IoU ≈ 0.78, 类别一致&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;shadow=1;fontSize=11;spacing=4;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="500" y="530" width="380" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_unmatch" value="&lt;b&gt;其余 298 个 Query → 背景 (no-object)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #b85450;&quot;&gt;这些 Query 不参与框回归, 只计算分类损失&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=2;shadow=1;fontSize=12;spacing=4;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="610" width="800" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_cost_title" value="&lt;b&gt;匹配代价 C_ij (i = pred, j = gt)&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=11;fontColor=#009999;fontStyle=2;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="690" width="820" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_cost" value="&lt;b&gt;C_ij = -p̂_i(c_j) + λ_L1 · ‖b_i - g_j‖₁ + λ_iou · (1 - GIoU(b_i, g_j))&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;分类代价 (负对数概率) + L1 框偏移 + GIoU 形状差异&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #1f4e79;&quot;&gt;匈牙利算法最小化: Σ C_σ(i),i&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2.5;shadow=1;fontSize:12;fontStyle=1;spacing=4;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="720" width="820" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_p_h" style="endArrow=classic;html=1;rounded=1;curved=0;strokeColor=#6c8ebf;strokeWidth=2.5;exitX=0.5;exitY=1;entryX=0.25;entryY=0;" parent="1" source="n_pred" target="n_hungarian" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_g_h" style="endArrow=classic;html=1;rounded=1;curved=0;strokeColor=#a85f00;strokeWidth=2.5;exitX=0.5;exitY=1;entryX=0.75;entryY=0;" parent="1" source="n_gt" target="n_hungarian" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_h_m" style="endArrow=classic;html=1;rounded=1;curved=0;strokeColor=#009999;strokeWidth=2.5;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" parent="1" source="n_hungarian" target="n_match_1" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_total_loss_title" value="&lt;b&gt;总损失 = 分类 + L1 + GIoU 加权求和&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=11;fontColor=#1f4e79;fontStyle=2;" parent="1" vertex="1">
+                    <mxGeometry x="980" y="160" width="860" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_loss_formula" value="&lt;b&gt;L = λ_cls · L_cls + λ_L1 · L_L1 + λ_iou · L_GIoU&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2.5;shadow=1;fontSize:14;fontStyle=1;spacing=4;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="980" y="190" width="860" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_cls_loss" value="&lt;b&gt;L_cls (分类损失)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;Focal Loss 或 Cross-Entropy&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #1f4e79;&quot;&gt;&lt;b&gt;所有 300 个 Query 都参与&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #b85450;&quot;&gt;背景类降权 0.1,缓解类别不平衡&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;strokeWidth=2;shadow=1;fontSize=12;spacing=4;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="980" y="290" width="280" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_l1_loss" value="&lt;b&gt;L_L1 (L1 回归损失)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;‖b_i - g_j‖₁&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #1f4e79;&quot;&gt;&lt;b&gt;只计算匹配上的 Query (K=2)&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #b85450;&quot;&gt;直接最小化中心点 + 宽高偏差&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce4ec;strokeColor=#b85450;strokeWidth=2;shadow=1;fontSize=12;spacing=4;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="1270" y="290" width="280" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_iou_loss" value="&lt;b&gt;L_GIoU (GIoU 损失)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;1 - GIoU(b_i, g_j)&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #1f4e79;&quot;&gt;&lt;b&gt;只计算匹配上的 Query (K=2)&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #b85450;&quot;&gt;考虑形状 + 包含关系,更稳定&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce4ec;strokeColor=#b85450;strokeWidth=2;shadow=1;fontSize=12;spacing=4;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="1560" y="290" width="280" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_lambdas" value="&lt;b&gt;权重超参数 (典型值)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;λ_cls = 2  (分类主导,最重要)&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;λ_L1 = 5  (框偏移)&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;λ_iou = 2  (形状相似)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce4ec;strokeColor=#b85450;strokeWidth=2;dashed=1;shadow=1;fontSize=12;spacing=4;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="980" y="410" width="860" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_aux" value="&lt;b&gt;辅助损失 (Aux Loss)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;RT-DETR 沿用 Deformable DETR 的设计:&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #1f4e79;&quot;&gt;&lt;b&gt;每层 Decoder 都输出预测, 都计算损失&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;→ 加速收敛, 让早期层的预测也接近最终质量&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;dashed=1;shadow=1;fontSize=12;spacing=4;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="980" y="530" width="860" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_dn" value="&lt;b&gt;去噪训练 (DN-DETR)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;把真实框加噪后作为额外 Query 喂给 Decoder&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #ff7043;&quot;&gt;&lt;b&gt;让网络学会把噪声框「拉回」到真实框&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;→ 提升 Query 判别能力, 加速收敛到 72 epoch&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe0d2;strokeColor=#ff7043;strokeWidth=2;dashed=1;shadow=1;fontSize=12;spacing=4;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="980" y="650" width="860" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_total" value="&lt;b&gt;总损失: 加权求和 + 辅助 + 去噪&lt;/b&gt;" style="shape=mxgraph.flowchart.terminator;fillColor=#82b366;strokeColor=#3a5f23;strokeWidth=3;fontColor=#ffffff;shadow=1;fontSize:14;fontStyle=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="980" y="780" width="860" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_loss_lambdas" style="endArrow=classic;html=1;rounded=1;curved=0;strokeColor=#d6b656;strokeWidth=2.5;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" parent="1" source="n_loss_formula" target="n_lambdas" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_l_aux" style="endArrow=classic;html=1;rounded=1;curved=0;strokeColor=#9673a6;strokeWidth=2.5;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" parent="1" source="n_lambdas" target="n_aux" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_aux_dn" style="endArrow=classic;html=1;rounded=1;curved=0;strokeColor=#ff7043;strokeWidth=2.5;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" parent="1" source="n_aux" target="n_dn" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_dn_total" style="endArrow=classic;html=1;rounded=1;curved=0;strokeColor=#82b366;strokeWidth=3;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" parent="1" source="n_dn" target="n_total" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_h_loss" style="endArrow=classic;html=1;rounded=1;curved=1;strokeColor=#9673a6;strokeWidth=2.5;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="n_hungarian" target="n_loss_formula" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="900" y="430"/>
+                            <mxPoint x="940" y="230"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_h_loss_label" value="&lt;b&gt;匹配结果 → 损失计算&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize:11;fontColor=#9673a6;fontStyle=2;" parent="1" vertex="1">
+                    <mxGeometry x="880" y="380" width="160" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_summary" value="&lt;b&gt;关键洞察:损失 = 匹配结果 × 各项损失函数&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 12px; color: #555555;&quot;&gt;匈牙利匹配保证「一对一」配对 → 避免重复检测 (无需 NMS)&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 12px; color: #1f4e79;&quot;&gt;辅助损失 + 去噪训练 = 让 6 层 Decoder 的早期层也学到位 → 训练从 500 epoch 降到 72 epoch&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2.5;dashed=1;shadow=1;fontSize:12;fontColor=#666666;align=center;spacing=8;spacingLeft=10;spacingRight=10;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="920" width="1820" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend" value="━━━━━ 数据流 &amp;nbsp;&amp;nbsp; ▢ 处理节点 &amp;nbsp;&amp;nbsp; ⬡ 匈牙利匹配 (蒂绿) &amp;nbsp;&amp;nbsp; ◆ LayerNorm (紫)" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;fontColor=#888888;fontStyle=2;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="1010" width="1820" height="22" as="geometry"/>
+                </mxCell>
+                <mxCell id="footer" value="&lt;b&gt;直觉:匈牙利匹配让「谁预测谁」最优 → 损失只在「配对成功的对」上计算 → 自然得到一对一预测,无需 NMS" style="text;html=1;align=center;verticalAlign=middle;fontSize=11;fontColor=#888888;fontStyle=2;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="1040" width="1820" height="22" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

@@ -1,0 +1,67 @@
+<mxfile host="65bd71144e">
+    <diagram name="rt-detr-vs-yolo-comparison" id="rt-detr-vs-yolo-comparison">
+        <mxGraphModel dx="1666" dy="1139" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="title" value="&lt;b&gt;RT-DETR vs YOLO(以 YOLOv11 为代表):三个维度的系统性差异&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=18;fontColor=#1f4e79;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="20" width="1200" height="32" as="geometry"/>
+                </mxCell>
+                <mxCell id="subtitle" value="2025 年 v4 基本追平 YOLOv11,但三条底层设计差异让两条路线的工程取舍完全不同" style="text;html=1;align=center;verticalAlign=middle;fontSize=12;fontColor=#666666;fontStyle=2;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="58" width="1200" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="col1_h" value="&lt;b&gt;① 后处理&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #ffe6cc;&quot;&gt;Post-processing&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1f4e79;strokeColor=#1f4e79;strokeWidth=2;shadow=1;fontColor=#ffffff;fontSize=13;fontStyle=1;spacing=3;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="110" width="380" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="col2_h" value="&lt;b&gt;② 结构&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #ffe6cc;&quot;&gt;Architecture&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a85f00;strokeColor=#a85f00;strokeWidth=2;shadow=1;fontColor=#ffffff;fontSize=13;fontStyle=1;spacing=3;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="610" y="110" width="380" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="col3_h" value="&lt;b&gt;③ Query 机制&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #e1d5e7;&quot;&gt;Prediction Paradigm&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#9673a6;strokeColor=#9673a6;strokeWidth=2;shadow=1;fontColor=#ffffff;fontSize=13;fontStyle=1;spacing=3;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="1020" y="110" width="380" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="row_yolo_label" value="&lt;b&gt;YOLO&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;YOLOv11&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #ffe6cc;&quot;&gt;&lt;b&gt;实时 + 工业主流&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6c8ebf;strokeColor=#1f4e79;strokeWidth=2.5;shadow=1;fontColor=#ffffff;fontSize=14;fontStyle=1;spacing=4;spacingTop=4;" parent="1" vertex="1">
+                    <mxGeometry x="30" y="200" width="160" height="220" as="geometry"/>
+                </mxCell>
+                <mxCell id="yolo_pp" value="&lt;b&gt;NMS 非极大值抑制&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;按 IoU 阈值去除重复框&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #b85450;&quot;&gt;&lt;b&gt;阈值需场景调参,时延不稳定&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;strokeWidth=2;shadow=1;fontSize=12;fontStyle=1;spacing=5;spacingTop=4;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="200" width="380" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="yolo_struct" value="&lt;b&gt;纯 CNN Backbone + FPN/PAN&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;C2f / C3k2 / SPPF 等模块堆叠&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #3a5f23;&quot;&gt;&lt;b&gt;局部归纳偏置:小物体强,大物体一般&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;strokeWidth=2;shadow=1;fontSize=12;fontStyle=1;spacing=5;spacingTop=4;" parent="1" vertex="1">
+                    <mxGeometry x="610" y="200" width="380" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="yolo_query" value="&lt;b&gt;密集预测 (Dense)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;特征图每点 = 1 个候选 (anchor-free)&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #b85450;&quot;&gt;&lt;b&gt;候选多,后处理复杂,输出冗余&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;strokeWidth=2;shadow=1;fontSize=12;fontStyle=1;spacing=5;spacingTop=4;" parent="1" vertex="1">
+                    <mxGeometry x="1020" y="200" width="380" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="row_rt_label" value="&lt;b&gt;RT-DETR&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;v4 (2025)&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #ffe6cc;&quot;&gt;&lt;b&gt;实时 + 端到端&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d79b00;strokeColor=#a85f00;strokeWidth=2.5;shadow=1;fontColor=#ffffff;fontSize=14;fontStyle=1;spacing=4;spacingTop=4;" parent="1" vertex="1">
+                    <mxGeometry x="30" y="450" width="160" height="220" as="geometry"/>
+                </mxCell>
+                <mxCell id="rt_pp" value="&lt;b&gt;无 NMS · 一对一匹配天然去重&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;Hungarian matching 一对一分配&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #3a5f23;&quot;&gt;&lt;b&gt;推理时延确定,部署友好&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;shadow=1;fontSize=12;fontStyle=1;spacing=5;spacingTop=4;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="450" width="380" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="rt_struct" value="&lt;b&gt;CNN Backbone + Transformer Enc-Dec&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;Hybrid/CFE Encoder + 可变形 Decoder&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #3a5f23;&quot;&gt;&lt;b&gt;全局 + 局部:大物体强,v4 小物体追平&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;shadow=1;fontSize=12;fontStyle=1;spacing=5;spacingTop=4;" parent="1" vertex="1">
+                    <mxGeometry x="610" y="450" width="380" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="rt_query" value="&lt;b&gt;稀疏预测 (Sparse) K=300 Query&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;从 Encoder Memory 选 Top-K 高质量 Query&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #3a5f23;&quot;&gt;&lt;b&gt;输出干净,Decoder 只需精修&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;shadow=1;fontSize=12;fontStyle=1;spacing=5;spacingTop=4;" parent="1" vertex="1">
+                    <mxGeometry x="1020" y="450" width="380" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="summary_title" value="&lt;b&gt;三条底层差异 · 一句话权衡&lt;/b&gt;" style="text;html=1;align=left;verticalAlign=middle;fontSize=13;fontColor=#1f4e79;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="700" width="400" height="22" as="geometry"/>
+                </mxCell>
+                <mxCell id="summary" value="&lt;font style=&quot;font-size: 11px; color: #444444;&quot;&gt;YOLO 优势在 CNN 调优经验 + 工业部署成熟;RT-DETR 优势在端到端 + 全局建模。&lt;br&gt;2025 年 v4 与 YOLOv11 在 COCO AP 上基本持平(55.3 vs ~54),选择更多是工程考量:对 NMS 敏感(嵌入式实时)选 RT-DETR,CNN 调优熟悉选 YOLO。&lt;br&gt;长期看,端到端是更优雅、更可扩展的范式 —— DETR 路线从 2020 的慢但优雅到 2025 的又快又准,范式生命力已被验证。&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;dashed=1;shadow=1;align=left;spacing=10;spacingLeft=14;spacingTop=10;" parent="1" vertex="1">
+                    <mxGeometry x="30" y="725" width="1540" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend_blue" value="▭ YOLO 路线 (纯 CNN)" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;fontColor=#1f4e79;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="30" y="850" width="200" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend_orange" value="▭ RT-DETR 路线 (CNN+Transformer)" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;fontColor=#a85f00;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="240" y="850" width="260" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend_green" value="━━━━ RT-DETR 优势点" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;fontColor=#3a5f23;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="510" y="850" width="200" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend_red" value="━━━━ YOLO 痛点 / 工程包袱" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;fontColor=#b85450;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="720" y="850" width="220" height="20" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

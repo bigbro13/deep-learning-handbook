@@ -1,0 +1,166 @@
+<mxfile host="65bd71144e">
+    <diagram name="v3-dds-decouple" id="v3-dds-decouple">
+        <mxGraphModel dx="1666" dy="1139" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1900" pageHeight="1150" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="title" value="&lt;b&gt;v3 DDS:解耦去噪监督的两条路径&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=20;fontColor=#cc7a00;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="20" width="1100" height="32" as="geometry"/>
+                </mxCell>
+                <mxCell id="subtitle" value="v1/v2 去噪 Query 与正常 Query 共享 Decoder 路径,梯度互相干扰;v3 显式解耦两条注意力路径,各自损失独立计算" style="text;html=1;align=center;verticalAlign=middle;fontSize=12;fontColor=#666666;fontStyle=2;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="58" width="1500" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="c_v12" value="&lt;b&gt;v1 / v2:共享 Decoder 路径(梯度干扰)&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#aaaaaa;strokeWidth=1.5;dashed=1;verticalAlign=top;spacingTop=8;fontSize=14;fontColor=#b85450;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="110" width="900" height="900" as="geometry"/>
+                </mxCell>
+                <mxCell id="c_v3" value="&lt;b&gt;v3 DDS:解耦的双路径(关键改进)&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#ff9800;strokeWidth=2;dashed=1;verticalAlign=top;spacingTop=8;fontSize=14;fontColor=#cc7a00;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="960" y="110" width="900" height="900" as="geometry"/>
+                </mxCell>
+                <mxCell id="q1_normal" value="&lt;b&gt;正常 Query&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;从 Encoder Memory 选出的 300 个&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #1f4e79;&quot;&gt;「可能是物体的位置」&lt;/font&gt;" style="shape=mxgraph.flowchart.terminator;fillColor=#6c8ebf;strokeColor=#1f4e79;strokeWidth=2;fontColor=#ffffff;shadow=1;fontSize=11;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="170" width="280" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="q1_dn" value="&lt;b&gt;去噪 Query&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;加噪的真实框(K 个)&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #c43e00;&quot;&gt;「已知答案的题目」&lt;/font&gt;" style="shape=mxgraph.flowchart.terminator;fillColor=#ff7043;strokeColor=#c43e00;strokeWidth=2;fontColor=#ffffff;shadow=1;fontSize=11;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="600" width="280" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="q1_concat" value="&lt;b&gt;拼接成一个序列&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;[正常 Query | 去噪 Query]&lt;/font&gt;" style="shape=mxgraph.flowchart.preparation;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;shadow=1;fontSize=11;fontStyle=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="380" width="280" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="q1_decoder" value="&lt;b&gt;共享 Decoder&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;6 层可变形注意力&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #ffe6cc;&quot;&gt;两种 Query 走完全相同的路径&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d79b00;strokeColor=#a85f00;strokeWidth=2.5;shadow=1;fontColor=#ffffff;fontSize=12;fontStyle=1;spacing=4;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="450" y="380" width="240" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="q1_split" value="&lt;b&gt;按位置切分输出&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;前 300 正常 + 后 K 去噪&lt;/font&gt;" style="shape=mxgraph.flowchart.preparation;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;shadow=1;fontSize=11;fontStyle=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="750" y="380" width="160" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="q1_l_normal" value="&lt;b&gt;L_normal&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;匈牙利匹配 + 分类/回归损失&lt;/font&gt;" style="shape=mxgraph.flowchart.decision;fillColor=#fce4ec;strokeColor=#b85450;strokeWidth=2;shadow=1;fontSize=11;fontStyle=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="760" y="170" width="160" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="q1_l_dn" value="&lt;b&gt;L_dn&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;预测 vs 真实框&lt;/font&gt;" style="shape=mxgraph.flowchart.decision;fillColor=#fce4ec;strokeColor=#ff7043;strokeWidth=2;shadow=1;fontSize=11;fontStyle=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="760" y="600" width="160" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="q1_total" value="&lt;b&gt;L_total = L_normal + L_dn&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2.5;shadow=1;fontSize=12;fontStyle=1;spacing=4;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="460" y="800" width="280" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="q1_problem" value="&lt;b&gt;问题:梯度互相干扰&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #b85450;&quot;&gt;去噪 Query 是「已知真实位置的样本」&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #b85450;&quot;&gt;正常 Query 是「从 Memory 选的候选」&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #b85450;&quot;&gt;两者性质不同,但共享权重 → 互相拉扯&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce4ec;strokeColor=#b85450;strokeWidth=2.5;shadow=1;fontSize=11;spacing=4;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="890" width="800" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="q3_normal" value="&lt;b&gt;正常 Query&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;从 Encoder Memory 选出的 300 个&lt;/font&gt;" style="shape=mxgraph.flowchart.terminator;fillColor=#6c8ebf;strokeColor=#1f4e79;strokeWidth=2;fontColor=#ffffff;shadow=1;fontSize=11;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="1000" y="170" width="260" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="q3_dn" value="&lt;b&gt;去噪 Query&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;加噪的真实框(K 个)&lt;/font&gt;" style="shape=mxgraph.flowchart.terminator;fillColor=#ff7043;strokeColor=#c43e00;strokeWidth=2;fontColor=#ffffff;shadow=1;fontSize=11;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="1000" y="600" width="260" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="q3_decoder_a" value="&lt;b&gt;Decoder 路径 A&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;6 层,仅处理正常 Query&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #ffe6cc;&quot;&gt;独立权重 θ_A&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d79b00;strokeColor=#a85f00;strokeWidth=2.5;shadow=1;fontColor=#ffffff;fontSize=12;fontStyle=1;spacing=4;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="1330" y="170" width="260" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="q3_decoder_b" value="&lt;b&gt;Decoder 路径 B&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;6 层,仅处理去噪 Query&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #ffe6cc;&quot;&gt;独立权重 θ_B&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ff9800;strokeColor=#cc7a00;strokeWidth=2.5;shadow=1;fontColor=#ffffff;fontSize=12;fontStyle=1;spacing=4;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="1330" y="600" width="260" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="q3_l_a" value="&lt;b&gt;L_A (正常检测)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #3a5f23;&quot;&gt;匈牙利匹配 + 分类/回归&lt;/font&gt;" style="shape=mxgraph.flowchart.decision;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2.5;shadow=1;fontSize=11;fontStyle=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="1640" y="170" width="200" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="q3_l_b" value="&lt;b&gt;L_B (去噪)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #3a5f23;&quot;&gt;预测 vs 真实框&lt;/font&gt;" style="shape=mxgraph.flowchart.decision;fillColor=#d5e8d4;strokeColor=#ff9800;strokeWidth=2.5;shadow=1;fontSize=11;fontStyle=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="1640" y="600" width="200" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="q3_total" value="&lt;b&gt;L_total = L_A + L_B&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #cc7a00;&quot;&gt;两条梯度路径 &lt;b&gt;完全独立&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#ff9800;strokeWidth=2.5;shadow=1;fontSize=12;fontStyle=1;spacing=4;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="1000" y="800" width="380" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="q3_advantage" value="&lt;b&gt;优势:梯度互不干扰&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #3a5f23;&quot;&gt;✓ L_A 优化「正常检测」(Query Selection 用)&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #3a5f23;&quot;&gt;✓ L_B 优化「去噪能力」(辅助任务,提升稳定性)&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #3a5f23;&quot;&gt;✓ 两条路径各自收敛,RT-DETR 训练又快又稳&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2.5;shadow=1;fontSize=11;spacing=4;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="1000" y="900" width="840" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="e1n_concat" style="endArrow=classic;html=1;rounded=1;curved=1;strokeColor=#1f4e79;strokeWidth=2.5;exitX=0.5;exitY=1;entryX=0.2;entryY=0;" parent="1" source="q1_normal" target="q1_concat" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="100" y="320"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e1d_concat" style="endArrow=classic;html=1;rounded=1;curved=1;strokeColor=#ff7043;strokeWidth=2.5;exitX=0.5;exitY=0;entryX=0.8;entryY=1;" parent="1" source="q1_dn" target="q1_concat" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="340" y="460"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e1c_dec" style="endArrow=classic;html=1;rounded=1;curved=0;strokeColor=#d6b656;strokeWidth=2.5;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="q1_concat" target="q1_decoder" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e1dec_split" style="endArrow=classic;html=1;rounded=1;curved=0;strokeColor=#d6b656;strokeWidth=2.5;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="q1_decoder" target="q1_split" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e1sp_ln" style="endArrow=classic;html=1;rounded=1;curved=1;strokeColor=#6c8ebf;strokeWidth=2.5;exitX=0.25;exitY=0;entryX=0.5;entryY=1;" parent="1" source="q1_split" target="q1_l_normal" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="790" y="300"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e1sp_ld" style="endArrow=classic;html=1;rounded=1;curved=1;strokeColor=#ff7043;strokeWidth=2.5;exitX=0.75;exitY=1;entryX=0.5;entryY=0;" parent="1" source="q1_split" target="q1_l_dn" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="870" y="540"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e1ln_total" style="endArrow=classic;html=1;rounded=1;curved=1;strokeColor=#b85450;strokeWidth=2;exitX=0.5;exitY=1;entryX=0.1;entryY=0;" parent="1" source="q1_l_normal" target="q1_total" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="840" y="710"/>
+                            <mxPoint x="480" y="780"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e1ld_total" style="endArrow=classic;html=1;rounded=1;curved=1;strokeColor=#ff7043;strokeWidth=2;exitX=0.5;exitY=1;entryX=0.9;entryY=0;" parent="1" source="q1_l_dn" target="q1_total" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="840" y="770"/>
+                            <mxPoint x="730" y="780"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e3n_a" style="endArrow=classic;html=1;rounded=1;curved=0;strokeColor=#6c8ebf;strokeWidth=2.5;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="q3_normal" target="q3_decoder_a" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e3d_b" style="endArrow=classic;html=1;rounded=1;curved=0;strokeColor=#ff7043;strokeWidth=2.5;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="q3_dn" target="q3_decoder_b" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e3a_la" style="endArrow=classic;html=1;rounded=1;curved=0;strokeColor=#a85f00;strokeWidth=2.5;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="q3_decoder_a" target="q3_l_a" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e3b_lb" style="endArrow=classic;html=1;rounded=1;curved=0;strokeColor=#ff9800;strokeWidth=2.5;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="q3_decoder_b" target="q3_l_b" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e3la_total" style="endArrow=classic;html=1;rounded=1;curved=1;strokeColor=#82b366;strokeWidth=2.5;exitX=0.5;exitY=1;entryX=0.1;entryY=0;" parent="1" source="q3_l_a" target="q3_total" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1740" y="740"/>
+                            <mxPoint x="1040" y="780"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e3lb_total" style="endArrow=classic;html=1;rounded=1;curved=1;strokeColor=#ff9800;strokeWidth=2.5;exitX=0.5;exitY=1;entryX=0.9;entryY=0;" parent="1" source="q3_l_b" target="q3_total" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1740" y="770"/>
+                            <mxPoint x="1340" y="780"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="q1_label" value="&lt;b&gt;v1 / v2 旧路径(梯度干扰)&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=13;fontColor=#b85450;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="350" y="125" width="300" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="q3_label" value="&lt;b&gt;v3 DDS 新路径(梯度解耦)&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=13;fontColor=#cc7a00;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="1260" y="125" width="300" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="compare_label" value="&lt;b&gt;v3 →&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=14;fontColor=#ff9800;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="942" y="540" width="20" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="keypoint" value="&lt;b&gt;DDS 的核心思想:&lt;/b&gt;不同性质的监督信号不应共享权重 — 正常检测关注「从 Memory 选 Query」,去噪关注「从噪声框拉回真实位置」,任务不同,梯度应该独立。让 v3 真正发挥去噪训练的优势" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#ff9800;strokeWidth=1.5;dashed=1;fontSize=12;fontColor=#444444;align=center;spacing=8;spacingLeft=10;spacingRight=10;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="1030" width="1820" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="note" value="━━━━━&amp;nbsp; 正常 Query 路径 &amp;nbsp;|&amp;nbsp; ━━━━━&amp;nbsp; 去噪 Query 路径(珊瑚) &amp;nbsp;|&amp;nbsp; ━━━━&amp;nbsp; 共享/解耦 Decoder(橙=DDS 关键) &amp;nbsp;|&amp;nbsp; ━━━━&amp;nbsp; 损失决策(黄)" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;fontColor=#666666;fontStyle=2;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="1100" width="1820" height="24" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

@@ -1,0 +1,100 @@
+<mxfile host="65bd71144e">
+    <diagram name="v4-evolution-timeline" id="v4-evolution-timeline">
+        <mxGraphModel dx="1666" dy="1139" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1900" pageHeight="900" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="title" value="&lt;b&gt;RT-DETR 4 代演进:从 53.0 AP → 55.3 AP(2 年时间)&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=18;fontColor=#1f4e79;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="300" y="20" width="1300" height="32" as="geometry"/>
+                </mxCell>
+                <mxCell id="subtitle" value="每一代都解决一个具体的工程问题 — 从「实时端到端」到「训练优化」再到「架构升级」" style="text;html=1;align=center;verticalAlign=middle;fontSize=12;fontColor=#666666;fontStyle=2;" parent="1" vertex="1">
+                    <mxGeometry x="300" y="58" width="1300" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="timeline_axis" value="" style="endArrow=classic;html=1;rounded=1;curved=0;strokeColor=#1f4e79;strokeWidth=3;endFill=1;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="120" y="320" as="sourcePoint"/>
+                        <mxPoint x="1780" y="320" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="v1_node" value="&lt;b&gt;RT-DETRv1&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #ffe6cc;&quot;&gt;2023.4 百度发布&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px; color: #ffffff;&quot;&gt;实时端到端突破&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d79b00;strokeColor=#a85f00;strokeWidth=2.5;shadow=1;fontColor=#ffffff;fontSize=14;fontStyle=1;spacing=4;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="180" width="280" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="v1_ap" value="&lt;b&gt;53.0 AP&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;108 FPS&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2.5;shadow=1;fontSize=13;fontStyle=1;spacing=3;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="370" width="240" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="v1_key" value="&lt;b&gt;关键改进&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;• Hybrid Encoder(AIFI + CCFM)&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;• IoU-aware Query Selection&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;• 训练只需 72 epoch(DETR 要 500)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;strokeWidth=2;shadow=1;fontSize=11;align=left;spacingLeft=10;spacingTop=6;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="490" width="320" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="v2_node" value="&lt;b&gt;RT-DETRv2&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #ffe6cc;&quot;&gt;2024.5 百度发布&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px; color: #ffffff;&quot;&gt;训练策略精修&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d79b00;strokeColor=#a85f00;strokeWidth=2.5;shadow=1;fontColor=#ffffff;fontSize=14;fontStyle=1;spacing=4;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="540" y="180" width="280" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="v2_ap" value="&lt;b&gt;53.5 AP&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;108 FPS(保持)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2.5;shadow=1;fontSize=13;fontStyle=1;spacing=3;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="560" y="370" width="240" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="v2_key" value="&lt;b&gt;关键改进&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;• 离散采样代替正弦位置编码&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;• Null-Object Query 初始位置优化&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;• Matchability 概念提升匹配质量&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;strokeWidth=2;shadow=1;fontSize=11;align=left;spacingLeft=10;spacingTop=6;" parent="1" vertex="1">
+                    <mxGeometry x="520" y="490" width="320" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="v3_node" value="&lt;b&gt;RT-DETRv3&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #ffe6cc;&quot;&gt;2024.9 百度发布&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px; color: #ffffff;&quot;&gt;去噪解耦(DDS)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d79b00;strokeColor=#a85f00;strokeWidth=2.5;shadow=1;fontColor=#ffffff;fontSize=14;fontStyle=1;spacing=4;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="980" y="180" width="280" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="v3_ap" value="&lt;b&gt;54.0 AP&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;108 FPS(保持)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2.5;shadow=1;fontSize=13;fontStyle=1;spacing=3;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="1000" y="370" width="240" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="v3_key" value="&lt;b&gt;关键改进&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;• DDS:去噪与正常任务梯度解耦&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;• 高质量 Query Selection(稳定性)&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;• 架构不变,纯训练优化&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;strokeWidth=2;shadow=1;fontSize=11;align=left;spacingLeft=10;spacingTop=6;" parent="1" vertex="1">
+                    <mxGeometry x="960" y="490" width="320" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="v4_node" value="&lt;b&gt;RT-DETRv4&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #ffe6cc;&quot;&gt;2025.4 百度发布&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px; color: #ffffff;&quot;&gt;架构升级(CFE)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d79b00;strokeColor=#a85f00;strokeWidth=2.5;shadow=1;fontColor=#ffffff;fontSize=14;fontStyle=1;spacing=4;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="1420" y="180" width="280" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="v4_ap" value="&lt;b&gt;55.3 AP&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #3a5f23;&quot;&gt;&lt;b&gt;100+ FPS&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2.5;shadow=1;fontSize=13;fontStyle=1;spacing=3;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="1440" y="370" width="240" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="v4_key" value="&lt;b&gt;关键改进&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;• CFE 替代 Hybrid Encoder&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;• SIA 窗口自注意力(Swin-style)&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #3a5f23;&quot;&gt;• 小物体 AP 提升 +2.5,追平/超越 YOLO&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#ff9800;strokeWidth=2;shadow=1;fontSize=11;align=left;spacingLeft=10;spacingTop=6;" parent="1" vertex="1">
+                    <mxGeometry x="1400" y="490" width="320" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="dot1" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#a85f00;strokeColor=#a85f00;shadow=1;" parent="1" vertex="1">
+                    <mxGeometry x="226" y="306" width="28" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="dot2" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#a85f00;strokeColor=#a85f00;shadow=1;" parent="1" vertex="1">
+                    <mxGeometry x="666" y="306" width="28" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="dot3" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#a85f00;strokeColor=#a85f00;shadow=1;" parent="1" vertex="1">
+                    <mxGeometry x="1106" y="306" width="28" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="dot4" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ff9800;strokeColor=#cc7a00;strokeWidth=2;shadow=1;" parent="1" vertex="1">
+                    <mxGeometry x="1546" y="304" width="32" height="32" as="geometry"/>
+                </mxCell>
+                <mxCell id="trend_ap" value="&lt;b&gt;AP 上升趋势:53.0 → 53.5 → 54.0 → 55.3&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=13;fontColor=#3a5f23;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="600" y="640" width="700" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="trend_label" value="&lt;font style=&quot;font-size: 11px; color: #888888;&quot;&gt;2 年内通过 4 代迭代,AP 提升 2.3 点,速度保持实时档位(100+ FPS)&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="500" y="670" width="900" height="22" as="geometry"/>
+                </mxCell>
+                <mxCell id="keypoint" value="&lt;b&gt;演进规律:&lt;/b&gt;v1/v2/v3 是「训练策略」维度的渐进优化(架构不变),v4 是「架构」维度的重大升级(CFE)。前者零成本(只需调训练),后者结构性创新(架构重设计),但每次都解决一个具体的工程问题。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=1.5;dashed=1;fontSize=11;fontColor=#444444;align=left;spacing=8;spacingLeft=14;spacingRight=10;spacingTop=10;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="730" width="1500" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend_node" value="&lt;b&gt;▢ 节点:&lt;/b&gt;版本名 + 发布月份 + 主题" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;fontColor=#a85f00;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="820" width="320" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend_ap" value="&lt;b&gt;▢ 下方黄底:&lt;/b&gt;AP / FPS 核心指标" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;fontColor=#d6b656;" parent="1" vertex="1">
+                    <mxGeometry x="600" y="820" width="320" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend_key" value="&lt;b&gt;▢ 最下方:&lt;/b&gt;该版本关键改进点" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;fontColor=#888888;" parent="1" vertex="1">
+                    <mxGeometry x="1000" y="820" width="320" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="dot1_label" value="2023.4" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;fontColor=#1f4e79;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="220" y="285" width="40" height="18" as="geometry"/>
+                </mxCell>
+                <mxCell id="dot2_label" value="2024.5" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;fontColor=#1f4e79;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="660" y="285" width="40" height="18" as="geometry"/>
+                </mxCell>
+                <mxCell id="dot3_label" value="2024.9" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;fontColor=#1f4e79;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="1100" y="285" width="40" height="18" as="geometry"/>
+                </mxCell>
+                <mxCell id="dot4_label" value="2025.4" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;fontColor=#cc7a00;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="1542" y="285" width="40" height="18" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

@@ -1,0 +1,109 @@
+<mxfile host="65bd71144e">
+    <diagram name="aifi-s5-only" id="aifi-s5-only">
+        <mxGraphModel dx="1666" dy="1139" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="800" pageHeight="1400" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="title" value="&lt;b&gt;AIFI:只在最高层 S5 做自注意力&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=18;fontColor=#1f4e79;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="20" width="600" height="32" as="geometry"/>
+                </mxCell>
+                <mxCell id="subtitle" value="把 S5 特征图展平成 400 个 token,只过 1 层 Encoder;序列长 8400 → 400,计算量降 2500 倍" style="text;html=1;align=center;verticalAlign=middle;fontSize=12;fontColor=#666666;fontStyle=2;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="58" width="640" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="c_full" value="&lt;b&gt;如果三尺度都做全局自注意力(原始 DETR 思路)&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#aaaaaa;strokeWidth=1.5;dashed=1;verticalAlign=top;spacingTop=8;fontSize=12;fontColor=#888888;spacingLeft=12;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="110" width="700" height="220" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_s3" value="&lt;b&gt;S3 多尺度 token&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;80 × 80 = 6400 tokens&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #888888;&quot;&gt;stride = 8&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#aaaaaa;strokeWidth=1.5;dashed=1;shadow=1;fontSize=11;spacing=4;spacingTop=2;fontColor=#888888;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="160" width="180" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_s4" value="&lt;b&gt;S4 多尺度 token&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;40 × 40 = 1600 tokens&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #888888;&quot;&gt;stride = 16&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#aaaaaa;strokeWidth=1.5;dashed=1;shadow=1;fontSize=11;spacing=4;spacingTop=2;fontColor=#888888;" parent="1" vertex="1">
+                    <mxGeometry x="310" y="160" width="180" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_s5_in" value="&lt;b&gt;S5 多尺度 token&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;20 × 20 = 400 tokens&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #888888;&quot;&gt;stride = 32&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#aaaaaa;strokeWidth=1.5;dashed=1;shadow=1;fontSize=11;spacing=4;spacingTop=2;fontColor=#888888;" parent="1" vertex="1">
+                    <mxGeometry x="540" y="160" width="180" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_total" value="&lt;b&gt;合计 8400 tokens&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #b85450;&quot;&gt;6 层自注意力 ≈ 1.0 × 10¹¹ 次乘加&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #b85450;&quot;&gt;完全无法实时&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce4ec;strokeColor=#b85450;strokeWidth=2;shadow=1;fontSize=11;spacing=4;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="250" y="260" width="300" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_s3_total" style="endArrow=classic;html=1;rounded=0;strokeColor=#aaaaaa;strokeWidth=1.5;dashed=1;exitX=0.5;exitY=1;entryX=0.2;entryY=0;" parent="1" source="n_s3" target="n_total" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_s4_total" style="endArrow=classic;html=1;rounded=0;strokeColor=#aaaaaa;strokeWidth=1.5;dashed=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" parent="1" source="n_s4" target="n_total" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_s5_total" style="endArrow=classic;html=1;rounded=0;strokeColor=#aaaaaa;strokeWidth=1.5;dashed=1;exitX=0.5;exitY=1;entryX=0.8;entryY=0;" parent="1" source="n_s5_in" target="n_total" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="arrow_div" value="&lt;b&gt;↓&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=20;fontColor=#1f4e79;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="380" y="345" width="40" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="c_aifi" value="&lt;b&gt;AIFI 路径:只在 S5 做自注意力(RT-DETR 思路)&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#ff9800;strokeWidth=1.5;dashed=1;verticalAlign=top;spacingTop=8;fontSize=12;fontColor=#cc7a00;fontStyle=1;spacingLeft=12;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="400" width="700" height="820" as="geometry"/>
+                </mxCell>
+                <mxCell id="bad1" value="①" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1f4e79;strokeColor=#1f4e79;fontColor=#ffffff;fontSize=16;fontStyle=1;shadow=1;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="450" width="32" height="32" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_s5_feat" value="&lt;b&gt;S5 特征图&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;Backbone stride=32 输出&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px; color: #1f4e79;&quot;&gt;&lt;b&gt;20 × 20 × 256&lt;/b&gt;&lt;/font&gt;" style="shape=mxgraph.flowchart.terminator;fillColor=#6c8ebf;strokeColor=#1f4e79;strokeWidth=2;fontColor=#ffffff;shadow=1;fontSize=12;whiteSpace=wrap;html=1;spacing=4;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="180" y="445" width="200" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="bad2" value="②" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1f4e79;strokeColor=#1f4e79;fontColor=#ffffff;fontSize=16;fontStyle=1;shadow=1;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="560" width="32" height="32" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_flatten" value="&lt;b&gt;展平 + 位置编码&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;空间维度展平 + 转置 + sin/cos PE&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px; color: #1f4e79;&quot;&gt;&lt;b&gt;→ 400 × 256 token 序列&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;strokeWidth=2;shadow=1;fontSize=12;spacing=4;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="180" y="555" width="320" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="bad3" value="③" style="ellipse;whiteSpace=wrap;html=1;fillColor=#a85f00;strokeColor=#a85f00;fontColor=#ffffff;fontSize=16;fontStyle=1;shadow=1;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="685" width="32" height="32" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_enc" value="&lt;b&gt;Transformer Encoder Layer&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #ffe6cc;&quot;&gt;Multi-Head Self-Attention + FFN&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #ffe6cc;&quot;&gt;&lt;b&gt;只需 1 层就够(不像 DETR 6 层)&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d79b00;strokeColor=#a85f00;strokeWidth=2.5;shadow=1;fontColor=#ffffff;fontSize=12;fontStyle=1;spacing=4;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="180" y="680" width="380" height="85" as="geometry"/>
+                </mxCell>
+                <mxCell id="bad4" value="④" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1f4e79;strokeColor=#1f4e79;fontColor=#ffffff;fontSize=16;fontStyle=1;shadow=1;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="805" width="32" height="32" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_reshape" value="&lt;b&gt;Reshape 回空间特征图&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;400 tokens → 2D 空间布局&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px; color: #1f4e79;&quot;&gt;&lt;b&gt;→ 20 × 20 × 256&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;strokeWidth=2;shadow=1;fontSize=12;spacing=4;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="180" y="800" width="320" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_out" value="&lt;b&gt;S5 融合特征&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;送入 CCFM 跨尺度融合&lt;/font&gt;" style="shape=mxgraph.flowchart.terminator;fillColor=#82b366;strokeColor=#3a5f23;strokeWidth=2;fontColor=#ffffff;shadow=1;fontSize=12;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="180" y="920" width="200" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_s5_flat" style="endArrow=classic;html=1;rounded=1;curved=1;strokeColor=#6c8ebf;strokeWidth=2.5;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" parent="1" source="n_s5_feat" target="n_flatten" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_flat_enc" style="endArrow=classic;html=1;rounded=1;curved=1;strokeColor=#6c8ebf;strokeWidth=2.5;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" parent="1" source="n_flatten" target="n_enc" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_enc_reshape" style="endArrow=classic;html=1;rounded=1;curved=1;strokeColor=#a85f00;strokeWidth=3;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" parent="1" source="n_enc" target="n_reshape" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_reshape_out" style="endArrow=classic;html=1;rounded=1;curved=1;strokeColor=#6c8ebf;strokeWidth=2.5;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" parent="1" source="n_reshape" target="n_out" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="side_brace" value="&lt;b&gt;序列长度 8400 → 400&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px; color: #cc7a00;&quot;&gt;&lt;b&gt;Encoder 自注意力计算量降 2500 倍&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;1.0 × 10¹¹ → 4 × 10⁷ 次乘加&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#ff9800;strokeWidth=2.5;dashed=1;align=center;spacing=8;spacingLeft=10;spacingRight=10;fontSize=12;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="510" y="585" width="220" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_enc_side" style="endArrow=classic;html=1;rounded=1;curved=1;strokeColor=#ff9800;strokeWidth=2.5;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="n_enc" target="side_brace" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="keypoint" value="&lt;b&gt;关键洞察:&lt;/b&gt;高层特征(S5)序列短(400)且语义丰富,适合 Transformer 全局建模;低层(S3/S4)序列长(6400+1600)细节多,改用卷积式融合。&lt;br&gt;在大数据预训练下,1 层 Encoder 就够 — 不必像原始 DETR 堆 6 层" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=1.5;dashed=1;fontSize=11;fontColor=#444444;align=left;spacing=8;spacingLeft=14;spacingRight=10;spacingTop=10;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="1040" width="640" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="note" value="① 取出 S5 &amp;nbsp;&amp;nbsp; ② 展平 + 位置编码 &amp;nbsp;&amp;nbsp; ③ 1 层 Encoder &amp;nbsp;&amp;nbsp; ④ reshape 回空间" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;fontColor=#999999;fontStyle=2;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="1130" width="640" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend_data" value="━━━━ 数据流" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;fontColor=#6c8ebf;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="1280" width="120" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend_enc" value="▢ Encoder 关键节点" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;fontColor=#a85f00;" parent="1" vertex="1">
+                    <mxGeometry x="220" y="1280" width="160" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend_compute" value="⚡ 计算量对比" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;fontColor=#cc7a00;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="1280" width="160" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend_out" value="▶ 输出" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;fontColor=#3a5f23;" parent="1" vertex="1">
+                    <mxGeometry x="580" y="1280" width="120" height="20" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

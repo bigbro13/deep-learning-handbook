@@ -1,0 +1,208 @@
+<mxfile host="65bd71144e">
+    <diagram name="v4-sia-window-attention" id="v4-sia-window-attention">
+        <mxGraphModel dx="1666" dy="1139" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1500" pageHeight="1300" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="title" value="&lt;b&gt;SIA 窗口注意力:规则窗口 → 移位窗口(Swin-style)&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=18;fontColor=#1f4e79;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="20" width="1100" height="32" as="geometry"/>
+                </mxCell>
+                <mxCell id="subtitle" value="先把特征图切成 k×k 窗口做自注意力(限制感受野),再「移位」让相邻窗口交互(扩大感受野)" style="text;html=1;align=center;verticalAlign=middle;fontSize=12;fontColor=#666666;fontStyle=2;" parent="1" vertex="1">
+                    <mxGeometry x="150" y="58" width="1200" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="c_top" value="&lt;b&gt;Step ① 规则窗口(Regular Window)&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#ff9800;strokeWidth=2;dashed=1;verticalAlign=top;spacingTop=8;spacingLeft=14;fontSize=13;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="110" width="1380" height="460" as="geometry"/>
+                </mxCell>
+                <mxCell id="grid_label_top" value="&lt;b&gt;特征图(示意)&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=11;fontColor=#555555;fontStyle=2;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="135" width="180" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="grid_top" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;strokeWidth=2;shadow=1;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="160" width="280" height="280" as="geometry"/>
+                </mxCell>
+                <mxCell id="cell_t_0" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="160" width="70" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="cell_t_1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1;" parent="1" vertex="1">
+                    <mxGeometry x="150" y="160" width="70" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="cell_t_2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#ff9800;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="220" y="160" width="70" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="cell_t_3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1;" parent="1" vertex="1">
+                    <mxGeometry x="290" y="160" width="70" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="cell_t_4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="230" width="70" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="cell_t_5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#ff9800;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="150" y="230" width="70" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="cell_t_6" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#ff9800;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="220" y="230" width="70" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="cell_t_7" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1;" parent="1" vertex="1">
+                    <mxGeometry x="290" y="230" width="70" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="cell_t_8" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="300" width="70" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="cell_t_9" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1;" parent="1" vertex="1">
+                    <mxGeometry x="150" y="300" width="70" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="cell_t_10" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1;" parent="1" vertex="1">
+                    <mxGeometry x="220" y="300" width="70" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="cell_t_11" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1;" parent="1" vertex="1">
+                    <mxGeometry x="290" y="300" width="70" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="cell_t_12" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="370" width="70" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="cell_t_13" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1;" parent="1" vertex="1">
+                    <mxGeometry x="150" y="370" width="70" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="cell_t_14" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1;" parent="1" vertex="1">
+                    <mxGeometry x="220" y="370" width="70" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="cell_t_15" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1;" parent="1" vertex="1">
+                    <mxGeometry x="290" y="370" width="70" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="cell_t_label_2" value="&lt;b&gt;W1&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=14;fontColor=#a85f00;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="220" y="160" width="70" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="cell_t_label_5" value="&lt;b&gt;W2&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=14;fontColor=#a85f00;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="150" y="230" width="70" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="cell_t_label_6" value="&lt;b&gt;W3&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=14;fontColor=#a85f00;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="220" y="230" width="70" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="grid_note_top" value="&lt;b&gt;黄格标 3 个示例窗口(2x2 示意)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;实际划分:7x7 窗口 x 11x11 个(S3 80x80)&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;每窗口 49 token 自注意 — 复杂度 O(L*k^2)&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=top;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="455" width="320" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_self_attn" value="&lt;b&gt;窗口内自注意力&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;每个 7x7 窗口独立算 Self-Attention&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #ffe6cc;&quot;&gt;Q,K,V 都来自同一窗口的 49 token&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d79b00;strokeColor=#a85f00;strokeWidth=2.5;shadow=1;fontColor=#ffffff;fontSize=12;fontStyle=1;spacing=4;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="450" y="180" width="280" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_problem" value="&lt;b&gt;问题:窗口间不交互&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #b85450;&quot;&gt;感受野被限制在 7x7 内&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #b85450;&quot;&gt;信息无法跨窗口流动&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce4ec;strokeColor=#b85450;strokeWidth=2;shadow=1;fontSize=11;spacing=4;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="450" y="310" width="280" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_complexity" value="&lt;b&gt;复杂度 O(L*k^2)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #3a5f23;&quot;&gt;L = 6400 (S3 总 token)&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #3a5f23;&quot;&gt;k^2 = 49 (窗口大小)&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #3a5f23;&quot;&gt;约 3.1x10^5 vs 全局 L^2 = 4.1x10^7&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;shadow=1;fontSize=11;spacing=4;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="450" y="440" width="280" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_top_attn" style="endArrow=classic;html=1;rounded=1;curved=1;strokeColor=#a85f00;strokeWidth=2.5;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="grid_top" target="n_self_attn" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_attn_prob" style="endArrow=classic;html=1;rounded=1;curved=1;strokeColor=#a85f00;strokeWidth=2.5;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" parent="1" source="n_self_attn" target="n_problem" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_prob_comp" style="endArrow=classic;html=1;rounded=1;curved=1;strokeColor=#a85f00;strokeWidth=2.5;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" parent="1" source="n_problem" target="n_complexity" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_legend_top" value="&lt;u&gt;图中色块含义&lt;/u&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #1f4e79;&quot;&gt;蓝色:&lt;/font&gt; 普通 token 像素&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #a85f00;&quot;&gt;橙色:&lt;/font&gt; 标记的窗口示例" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;strokeWidth=1.5;shadow=1;fontSize=11;align=left;spacingLeft=10;spacingTop=6;" parent="1" vertex="1">
+                    <mxGeometry x="780" y="180" width="220" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_steps" value="&lt;u&gt;Step ① 流程&lt;/u&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;1. 划分 k×k 窗口(无重叠)&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;2. 每窗口 49 token 自注意&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;3. 输出保持原空间布局&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#ff9800;strokeWidth=1.5;shadow=1;fontSize=11;align=left;spacingLeft=10;spacingTop=6;" parent="1" vertex="1">
+                    <mxGeometry x="780" y="290" width="220" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_stats" value="&lt;u&gt;关键数据(S3 为例)&lt;/u&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;特征图:80x80 = 6400 token&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;窗口:7x7 = 11x11 个&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;每窗口:49 token 自注意&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #3a5f23;&quot;&gt;&lt;b&gt;全局 → 局部,降约 130 倍&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=1.5;shadow=1;fontSize=11;align=left;spacingLeft=10;spacingTop=6;" parent="1" vertex="1">
+                    <mxGeometry x="780" y="430" width="240" height="115" as="geometry"/>
+                </mxCell>
+                <mxCell id="arrow_div" value="&lt;b&gt;↓&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=24;fontColor=#1f4e79;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="700" y="595" width="40" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="c_bot" value="&lt;b&gt;Step ② 移位窗口(Shifted Window)&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#ff9800;strokeWidth=2;dashed=1;verticalAlign=top;spacingTop=8;spacingLeft=14;fontSize=13;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="650" width="1380" height="560" as="geometry"/>
+                </mxCell>
+                <mxCell id="grid_label_bot" value="&lt;b&gt;移位后的特征图(整体平移 3 像素)&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=11;fontColor=#555555;fontStyle=2;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="675" width="280" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="grid_bot" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;strokeWidth=2;shadow=1;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="700" width="280" height="280" as="geometry"/>
+                </mxCell>
+                <mxCell id="cell_b_0" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=1;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="700" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="cell_b_1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=1;" parent="1" vertex="1">
+                    <mxGeometry x="110" y="700" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="cell_b_2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#ff9800;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="140" y="700" width="100" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="cell_b_3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1;" parent="1" vertex="1">
+                    <mxGeometry x="240" y="700" width="50" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="cell_b_4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1;" parent="1" vertex="1">
+                    <mxGeometry x="290" y="700" width="70" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="cell_b_5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#ff9800;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="800" width="100" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="cell_b_6" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1;" parent="1" vertex="1">
+                    <mxGeometry x="180" y="800" width="50" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="cell_b_7" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1;" parent="1" vertex="1">
+                    <mxGeometry x="230" y="800" width="50" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="cell_b_8" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#ff9800;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="280" y="800" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="cell_b_9" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="900" width="70" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="cell_b_10" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#ff9800;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="150" y="900" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="cell_b_11" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1;" parent="1" vertex="1">
+                    <mxGeometry x="230" y="900" width="70" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="cell_b_12" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1;" parent="1" vertex="1">
+                    <mxGeometry x="300" y="900" width="60" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="cell_b_label_2" value="&lt;b&gt;W1'&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=12;fontColor=#a85f00;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="140" y="700" width="100" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="cell_b_label_5" value="&lt;b&gt;W2'&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=12;fontColor=#a85f00;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="800" width="100" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="cell_b_label_10" value="&lt;b&gt;W3'&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=12;fontColor=#a85f00;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="150" y="900" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="cell_b_label_8" value="&lt;b&gt;W4'&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=12;fontColor=#a85f00;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="280" y="800" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="grid_note_bot" value="&lt;b&gt;新窗口跨越原 W1/W2/W3 边界&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;原本分属不同窗口的 token 现在同处一个窗口,可互相 attend&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;实现「跨窗口信息流动」,扩大感受野&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=top;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="1000" width="320" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_shift_attn" value="&lt;b&gt;移位后窗口自注意力&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;用 mask 区分真实窗口 vs 拼接区&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #ffe6cc;&quot;&gt;新窗口 token 来源于多个原窗口&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d79b00;strokeColor=#a85f00;strokeWidth=2.5;shadow=1;fontColor=#ffffff;fontSize=12;fontStyle=1;spacing=4;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="450" y="700" width="280" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_benefit" value="&lt;b&gt;效果:窗口间信息交互&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #3a5f23;&quot;&gt;每个 token 间接看到更多邻居&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #3a5f23;&quot;&gt;感受野扩大到 14x14 像素级&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2.5;shadow=1;fontSize=11;fontStyle=1;spacing=4;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="450" y="830" width="280" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_swin" value="&lt;b&gt;设计灵感:Swin Transformer&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;Liu et al. 2021, ICCV Best Paper&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #1f4e79;&quot;&gt;用最小计算代价获得「窗口级全局」&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce4ec;strokeColor=#b85450;strokeWidth=2;shadow=1;fontSize=11;spacing=4;spacingTop=2;" parent="1" vertex="1">
+                    <mxGeometry x="450" y="960" width="280" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_bot_attn" style="endArrow=classic;html=1;rounded=1;curved=1;strokeColor=#a85f00;strokeWidth=2.5;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="grid_bot" target="n_shift_attn" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_attn_ben" style="endArrow=classic;html=1;rounded=1;curved=1;strokeColor=#a85f00;strokeWidth=2.5;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" parent="1" source="n_shift_attn" target="n_benefit" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_ben_swin" style="endArrow=classic;html=1;rounded=1;curved=1;strokeColor=#a85f00;strokeWidth=2.5;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" parent="1" source="n_benefit" target="n_swin" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_legend_bot" value="&lt;u&gt;图中色块含义&lt;/u&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #1f4e79;&quot;&gt;蓝色:&lt;/font&gt; 普通 token 像素&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #a85f00;&quot;&gt;橙色:&lt;/font&gt; 移位后的新窗口&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #9673a6;&quot;&gt;紫色:&lt;/font&gt; 被排除的边缘像素" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;strokeWidth=1.5;shadow=1;fontSize=11;align=left;spacingLeft=10;spacingTop=6;" parent="1" vertex="1">
+                    <mxGeometry x="780" y="700" width="240" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_steps_bot" value="&lt;u&gt;Step ② 流程&lt;/u&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;1. 窗口整体平移 k/2 像素&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;2. 新窗口跨越原窗口边界&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;3. masked self-attention&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;4. 边缘 token 移位到对侧&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#ff9800;strokeWidth=1.5;shadow=1;fontSize=11;align=left;spacingLeft=10;spacingTop=6;" parent="1" vertex="1">
+                    <mxGeometry x="780" y="830" width="240" height="135" as="geometry"/>
+                </mxCell>
+                <mxCell id="n_summary" value="&lt;u&gt;整体收益&lt;/u&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #3a5f23;&quot;&gt;计算量级:&lt;b&gt;O(L*k^2) 约等于局部&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #3a5f23;&quot;&gt;感受野:&lt;b&gt;移位后可跨窗口传播&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #3a5f23;&quot;&gt;实现「卷积效率 + Transformer 全局」&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=1.5;shadow=1;fontSize=11;align=left;spacingLeft=10;spacingTop=6;" parent="1" vertex="1">
+                    <mxGeometry x="780" y="990" width="260" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="keypoint" value="&lt;b&gt;关键洞察:&lt;/b&gt;RT-DETRv4 的 SIA 把 Swin Transformer 的「窗口自注意力 + 移位窗口」从纯视觉 Backbone 搬到检测 Encoder,既保留 Transformer 全局建模能力,又把自注意力复杂度从 O(L^2) 压到 O(L*k^2) — 计算量逼近卷积,性能逼近全局注意力。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=1.5;dashed=1;fontSize=11;fontColor=#444444;align=left;spacing=8;spacingLeft=14;spacingRight=10;spacingTop=10;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="1230" width="1340" height="55" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
