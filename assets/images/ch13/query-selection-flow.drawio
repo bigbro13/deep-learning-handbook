@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram name="query-selection-flow" id="query-selection-flow">
-        <mxGraphModel dx="1666" dy="1139" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1900" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="1439" dy="1139" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1900" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -16,56 +16,39 @@
                 <mxCell id="c_cmp" value="&lt;b&gt;对比:原始 DETR vs RT-DETR&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#aaaaaa;strokeWidth=1.5;dashed=1;verticalAlign=top;spacingTop=8;fontSize=13;fontColor=#444444;" parent="1" vertex="1">
                     <mxGeometry x="1180" y="110" width="680" height="900" as="geometry"/>
                 </mxCell>
-                <mxCell id="b1" value="①" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1f4e79;strokeColor=#1f4e79;fontColor=#ffffff;fontSize=16;fontStyle=1;shadow=1;" parent="1" vertex="1">
-                    <mxGeometry x="80" y="160" width="32" height="32" as="geometry"/>
-                </mxCell>
                 <mxCell id="n_memory" value="&lt;b&gt;Encoder Memory&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;来自 Hybrid Encoder 的输出&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #1f4e79;&quot;&gt;&lt;b&gt;每个位置:图像局部特征 + 位置信息&lt;/b&gt;&lt;/font&gt;" style="shape=mxgraph.flowchart.terminator;fillColor=#6c8ebf;strokeColor=#1f4e79;strokeWidth=2;fontColor=#ffffff;shadow=1;fontSize=13;whiteSpace=wrap;html=1;spacing=4;spacingTop=2;" parent="1" vertex="1">
-                    <mxGeometry x="130" y="140" width="420" height="90" as="geometry"/>
-                </mxCell>
-                <mxCell id="b2" value="②" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1f4e79;strokeColor=#1f4e79;fontColor=#ffffff;fontSize=16;fontStyle=1;shadow=1;" parent="1" vertex="1">
-                    <mxGeometry x="80" y="280" width="32" height="32" as="geometry"/>
+                    <mxGeometry x="395" y="150" width="420" height="90" as="geometry"/>
                 </mxCell>
                 <mxCell id="c_branch" value="&lt;b&gt;双分支预测 (辅助头)&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fce4ec;strokeColor=#b85450;strokeWidth=1.5;dashed=1;fontSize=12;fontColor=#b85450;verticalAlign=top;spacingTop=4;" parent="1" vertex="1">
-                    <mxGeometry x="80" y="280" width="510" height="180" as="geometry"/>
+                    <mxGeometry x="350" y="270" width="510" height="180" as="geometry"/>
                 </mxCell>
                 <mxCell id="n_cls" value="&lt;b&gt;分类分支&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;FFN + softmax&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #1f4e79;&quot;&gt;&lt;b&gt;预测 C+1 类分数&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;strokeWidth=2;shadow=1;fontSize=12;spacing=4;spacingTop=2;" parent="1" vertex="1">
-                    <mxGeometry x="100" y="320" width="220" height="60" as="geometry"/>
+                    <mxGeometry x="370" y="312" width="220" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="n_iou" value="&lt;b&gt;IoU 分支&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;3 层 MLP + sigmoid&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #9c27b0;&quot;&gt;&lt;b&gt;预测框的 IoU 分数&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3e5f5;strokeColor=#9c27b0;strokeWidth=2;shadow=1;fontSize=12;spacing=4;spacingTop=2;" parent="1" vertex="1">
-                    <mxGeometry x="350" y="320" width="220" height="60" as="geometry"/>
+                    <mxGeometry x="610" y="312" width="220" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="n_combined_title" value="&lt;b&gt;综合分数 (考虑分类 + 定位)&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=11;fontColor=#b85450;fontStyle=2;" parent="1" vertex="1">
-                    <mxGeometry x="100" y="395" width="470" height="18" as="geometry"/>
+                    <mxGeometry x="355" y="380" width="470" height="18" as="geometry"/>
                 </mxCell>
                 <mxCell id="n_combined" value="&lt;b&gt;score = cls × IoU&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;同时考虑「分类自信」和「定位精准」&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2.5;shadow=1;fontSize=13;fontStyle=1;spacing=4;spacingTop=2;" parent="1" vertex="1">
-                    <mxGeometry x="100" y="415" width="470" height="35" as="geometry"/>
-                </mxCell>
-                <mxCell id="b3" value="③" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1f4e79;strokeColor=#1f4e79;fontColor=#ffffff;fontSize=16;fontStyle=1;shadow=1;" parent="1" vertex="1">
-                    <mxGeometry x="80" y="510" width="32" height="32" as="geometry"/>
+                    <mxGeometry x="370" y="398" width="460" height="35" as="geometry"/>
                 </mxCell>
                 <mxCell id="n_topk" value="&lt;b&gt;按综合分数排序,选 Top-K&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;从 ~8400 个位置中挑出最可能的 K 个&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px; color: #1f4e79;&quot;&gt;&lt;b&gt;Top-K = 300 个 Object Query&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2.5;shadow=1;fontSize=12;fontStyle=1;spacing=4;spacingTop=2;" parent="1" vertex="1">
-                    <mxGeometry x="130" y="500" width="470" height="90" as="geometry"/>
-                </mxCell>
-                <mxCell id="b4" value="④" style="ellipse;whiteSpace=wrap;html=1;fillColor=#a85f00;strokeColor=#a85f00;fontColor=#ffffff;fontSize=16;fontStyle=1;shadow=1;" parent="1" vertex="1">
-                    <mxGeometry x="80" y="640" width="32" height="32" as="geometry"/>
+                    <mxGeometry x="360" y="500" width="470" height="90" as="geometry"/>
                 </mxCell>
                 <mxCell id="n_query" value="&lt;b&gt;Object Query (输入自适应)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;从当前图像 Encoder Memory 动态挑选&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #1f4e79;&quot;&gt;&lt;b&gt;每张图都有自己的 300 个 Query&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce4ec;strokeColor=#b85450;strokeWidth=2.5;shadow=1;fontSize=12;fontStyle=1;spacing=4;spacingTop=2;" parent="1" vertex="1">
-                    <mxGeometry x="130" y="630" width="470" height="90" as="geometry"/>
-                </mxCell>
-                <mxCell id="b5" value="⑤" style="ellipse;whiteSpace=wrap;html=1;fillColor=#a85f00;strokeColor=#a85f00;fontColor=#ffffff;fontSize=16;fontStyle=1;shadow=1;" parent="1" vertex="1">
-                    <mxGeometry x="80" y="770" width="32" height="32" as="geometry"/>
+                    <mxGeometry x="360" y="630" width="470" height="90" as="geometry"/>
                 </mxCell>
                 <mxCell id="n_decoder" value="&lt;b&gt;Decoder (6 层可变形注意力)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;在 Encoder Memory 上做 Cross-Attention&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #3a5f23;&quot;&gt;&lt;b&gt;只需精修,不需要从零学起&lt;/b&gt;&lt;/font&gt;" style="shape=mxgraph.flowchart.terminator;fillColor=#d79b00;strokeColor=#a85f00;strokeWidth=2.5;fontColor=#ffffff;shadow=1;fontSize=13;fontStyle=1;whiteSpace=wrap;html=1;spacing=4;spacingTop=2;" parent="1" vertex="1">
-                    <mxGeometry x="130" y="760" width="470" height="100" as="geometry"/>
+                    <mxGeometry x="360" y="760" width="470" height="100" as="geometry"/>
                 </mxCell>
                 <mxCell id="e1" style="endArrow=classic;html=1;rounded=1;curved=0;strokeColor=#6c8ebf;strokeWidth=2.5;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" parent="1" source="n_memory" target="c_branch" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="e2" style="endArrow=classic;html=1;rounded=1;curved=1;strokeColor=#6c8ebf;strokeWidth=2.5;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" parent="1" source="c_branch" target="n_topk" edge="1">
+                <mxCell id="e2" style="endArrow=classic;html=1;rounded=1;curved=1;strokeColor=#6c8ebf;strokeWidth=2.5;exitX=0.5;exitY=1;entryX=0.519;entryY=-0.022;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="c_branch" target="n_topk" edge="1">
                     <mxGeometry relative="1" as="geometry">
-                        <Array as="points">
-                            <mxPoint x="335" y="475"/>
-                        </Array>
+                        <Array as="points"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="e3" style="endArrow=classic;html=1;rounded=1;curved=0;strokeColor=#82b366;strokeWidth=2.5;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" parent="1" source="n_topk" target="n_query" edge="1">
